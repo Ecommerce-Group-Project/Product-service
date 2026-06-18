@@ -1,11 +1,9 @@
 HELP.md
-<<<<<<< Updated upstream
+
 .env
 target/
 *.class
-=======
-target/
->>>>>>> Stashed changes
+
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
