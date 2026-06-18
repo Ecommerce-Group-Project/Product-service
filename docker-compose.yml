@@ -1,0 +1,31 @@
+version: '3.8'
+
+networks:
+  product-network:
+    driver: bridge
+
+volumes:
+  product-db-data:
+
+services:
+
+  product-db:
+    image: postgres:15-alpine
+    container_name: product-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: product_db
+      POSTGRES_USER: ecommerce_project
+      POSTGRES_PASSWORD: 123456789EP
+    ports:
+      - "5433:5432"
+    volumes:
+      - product-db-data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - product-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ecommerce_project -d product_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
