@@ -6,7 +6,11 @@ spring:
     name: product-service
 
   datasource:
+<<<<<<< Updated upstream
     url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5433}/${DB_NAME:product_db}?sslmode=disable
+=======
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:product_db}
+>>>>>>> Stashed changes
     username: ${DB_USERNAME:ecommerce_project}
     password: ${DB_PASSWORD:123456789EP}
     driver-class-name: org.postgresql.Driver
@@ -19,9 +23,12 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+<<<<<<< Updated upstream
 
 springdoc:
   api-docs:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
+=======
+>>>>>>> Stashed changes
