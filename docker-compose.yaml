@@ -42,6 +42,8 @@ services:
       - DB_NAME=product_db
       - spring.datasource.username=ecommerce_project
       - spring.datasource.password=123456789EP
+      - springdoc.api-docs.enabled=false
+      - springdoc.swagger-ui.enabled=false
     networks:
       - product-network
     depends_on:
