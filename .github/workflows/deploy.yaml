@@ -5,9 +5,10 @@ on:
     branches:
       - main
     paths:
-      - 'src/**'
-      - 'Dockerfile'
-      - 'pom.xml'
+      - src/**
+      - Dockerfile
+      - pom.xml
+      - .github/workflows/deploy.yaml
 
 env:
   RESOURCE_GROUP: ${{ vars.RESOURCE_GROUP }}
