@@ -1,0 +1,49 @@
+version: '3.8'
+
+networks:
+  product-network:
+    driver: bridge
+
+volumes:
+  product-db-data:
+
+services:
+  product-db:
+    image: postgres:15-alpine
+    container_name: product-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: product_db
+      POSTGRES_USER: ecommerce_project
+      POSTGRES_PASSWORD: 123456789EP
+    ports:
+      - "5433:5432"
+    volumes:
+      - product-db-data:/var/lib/postgresql/data
+      - ./development_db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - product-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ecommerce_project -d product_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  product-service:
+    build: .
+    image: product-service-image:v1
+    container_name: product-service-container
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - DB_HOST=product-db
+      - DB_PORT=5432
+      - DB_NAME=product_db
+      - spring.datasource.username=ecommerce_project
+      - spring.datasource.password=123456789EP
+    networks:
+      - product-network
+    depends_on:
+      product-db:
+        condition: service_healthy

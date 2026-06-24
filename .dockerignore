@@ -1,0 +1,63 @@
+# Maven build artifacts
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+.metadata
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+*.md
+docs/
+
+# Local development
+development_db/
+*.log
+*.sql
+
+# Docker files (not needed in context)
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker-compose.yaml
+docker-compose*.yml
+docker-compose*.yaml
+
+# Test and coverage
+*.class
+test-output/
+coverage/
+.coverage
+htmlcov/
+
+# OS specific
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs and temp
+logs/
+*.log
+tmp/
+temp/
