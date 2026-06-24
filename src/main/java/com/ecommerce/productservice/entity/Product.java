@@ -11,7 +11,7 @@ import lombok.Data;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(description = "Unique product ID", example = "1")
+    @Schema(description = "Unique product ID", example = "1",accessMode = Schema.AccessMode.READ_ONLY)
     private Long productId;
 
     @Schema(description = "Product name", example = "Laptop")
