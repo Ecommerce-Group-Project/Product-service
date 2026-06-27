@@ -12,6 +12,7 @@ on:
 jobs:
   validation:
     runs-on: ubuntu-latest
+    environment: production
 
     services:
       postgres:
