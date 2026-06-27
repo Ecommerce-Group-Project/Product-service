@@ -74,6 +74,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-          -Dsonar.projectKey=Ecommerce-Group-Project_Product-service \
-          -Dsonar.organization=Ecommerce-Group-Project
+          -Dsonar.projectKey=Ecommerce-Group-Project_Product-service 
 
