@@ -113,6 +113,15 @@ jobs:
           name: product-service
           path: .
 
+      # Move the file out of the auto-generated artifact folder if it nested it
+      - name: Ensure JAR is in root
+        run: |
+          if [ -f "product-service/product-service.jar" ]; then
+            mv product-service/product-service.jar ./product-service.jar
+          fi
+          echo "=== Verifying file location ==="
+          ls -la
+
 #      # Login to Azure
 #      - name: Azure Login
 #        uses: azure/login@532459ea530d8321f2fb9bb10d1e0bcf23869a43
