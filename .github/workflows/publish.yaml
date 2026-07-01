@@ -113,21 +113,21 @@ jobs:
           name: product-service
           path: target
 
-      # Login to Azure
-      - name: Azure Login
-        uses: azure/login@532459ea530d8321f2fb9bb10d1e0bcf23869a43
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+#      # Login to Azure
+#      - name: Azure Login
+#        uses: azure/login@532459ea530d8321f2fb9bb10d1e0bcf23869a43
+#        with:
+#          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # Login to Azure Container Registry
-      - name: Login to ACR
-        run: az acr login --name ${{ env.ACR_REGISTRY_NAME }}
+#      # Login to Azure Container Registry
+#      - name: Login to ACR
+#        run: az acr login --name ${{ env.ACR_REGISTRY_NAME }}
 
       # Build and Push Docker Image
       - name: Build and Push Image
         id: build-image
         run: |
-          IMAGE_URI=${{ env.ACR_DOMAIN_NAME }}/${{ env.REPOSITORY_NAME }}:${{ github.sha }}
+          IMAGE_URI="wicky2001/product_service:${{ github.sha }}"
   
           docker build -t $IMAGE_URI .
           docker push $IMAGE_URI
