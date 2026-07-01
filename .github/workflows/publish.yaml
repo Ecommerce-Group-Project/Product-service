@@ -139,7 +139,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ env.INFRA_REPO }}
-          token: ${{ secrets.GITOPS_REPO_TOKEN }}
           path: gitops-repo
 
       # Update deployment manifest
