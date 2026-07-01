@@ -75,6 +75,6 @@ jobs:
         run: |
           mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
            -Dsonar.projectKey=Ecommerce-Group-Project_Product-service \
-           s-Dsonar.qualitygate.wait=true
+           -Dsonar.qualitygate.wait=true
             
 
