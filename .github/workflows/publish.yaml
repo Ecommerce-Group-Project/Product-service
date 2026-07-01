@@ -156,6 +156,7 @@ jobs:
         with:
           repository: ${{ env.INFRA_REPO }}
           path: gitops-repo
+          token: ${{ secrets.GITOPS_PAT }}
 
       # Update deployment manifest
       - name: Update Kubernetes Deployment Manifest
