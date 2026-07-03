@@ -7,7 +7,7 @@ RUN addgroup --system spring && \
 
 USER spring:spring
 
-COPY target/product-service.jar app.jar
+COPY product-service.jar app.jar
 
 EXPOSE 8081
 
